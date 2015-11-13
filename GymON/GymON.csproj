@@ -47,6 +47,10 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\ExcerciseViewModel.cs" />
+    <Compile Include="Adapters\ExcerciseListAdapter.cs" />
+    <Compile Include="Models\NotifyPropertyChangedBase.cs" />
+    <Compile Include="Adapters\ObservableListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -56,11 +60,32 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v11\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v11\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi-v11\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi-v11\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_stat_dumbellicon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi-v11\ic_stat_dumbellicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Resources\drawable-hdpi\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Adapters\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>
