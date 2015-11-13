@@ -6,8 +6,8 @@
     android:background="#ffffff">
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:id="@+id/image"
         android:layout_gravity="center_vertical" />
     <TextView

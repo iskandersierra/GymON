@@ -25,12 +25,12 @@ namespace GymON
 			// Get our button from the layout resource,
 			// and attach an event to it
 			ListView lv = FindViewById<ListView> (Resource.Id.listView);
-		    var dict = new Dictionary<string, int>()
+		    var dict = new Dictionary<string, bool>()
 		    {
-		        {"hercules", Resource.Drawable.hercules},
-		        {"prompt", Resource.Drawable.prompt},
-		        {"bycicle", Resource.Drawable.bycicle},
-		        {"balls", Resource.Drawable.balls}
+		        {"hercules", true},
+		        {"prompt", false},
+		        {"bycicle", false},
+		        {"balls", true}
 		    };
             lv.Adapter = new ImgTextArrayAdapter(this, dict.Keys.ToArray(), dict);
         }
@@ -39,9 +39,9 @@ namespace GymON
     public class ImgTextArrayAdapter : ArrayAdapter<string> {
         private Context context;
         private string[] values;
-        private Dictionary<string, int> _mapper;
+        private Dictionary<string, bool> _mapper;
 
-        public ImgTextArrayAdapter(Context context, string[] values, Dictionary<string, int> mapper)
+        public ImgTextArrayAdapter(Context context, string[] values, Dictionary<string, bool> mapper)
             : base(context, Resource.Layout.ExerciseItemLayout, values)
         {
             this.context = context;
@@ -58,7 +58,8 @@ namespace GymON
             textView.Text = values[position];
             // Change the icon for Windows and iPhone
             var s = values[position];
-            var id = _mapper[s];
+            var val = _mapper[s];
+            var id = val ? Resource.Drawable.check : Resource.Drawable.close;
             imageView.SetImageResource(id);
             
             return rowView;
