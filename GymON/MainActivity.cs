@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -23,13 +24,46 @@ namespace GymON
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
-		}
-	}
+			ListView lv = FindViewById<ListView> (Resource.Id.listView);
+		    var dict = new Dictionary<string, int>()
+		    {
+		        {"hercules", Resource.Drawable.hercules},
+		        {"prompt", Resource.Drawable.prompt},
+		        {"bycicle", Resource.Drawable.bycicle},
+		        {"balls", Resource.Drawable.balls}
+		    };
+            lv.Adapter = new ImgTextArrayAdapter(this, dict.Keys.ToArray(), dict);
+        }
+    }
+
+    public class ImgTextArrayAdapter : ArrayAdapter<string> {
+        private Context context;
+        private string[] values;
+        private Dictionary<string, int> _mapper;
+
+        public ImgTextArrayAdapter(Context context, string[] values, Dictionary<string, int> mapper)
+            : base(context, Resource.Layout.ExerciseItemLayout, values)
+        {
+            this.context = context;
+            this.values = values;
+            _mapper = mapper;
+        }
+
+        public override View GetView(int position, View convertView, ViewGroup parent)
+        {
+            var inflater = (LayoutInflater) context.GetSystemService(Context.LayoutInflaterService);
+            var rowView = inflater.Inflate(Resource.Layout.ExerciseItemLayout, parent, false);
+            var textView = (TextView) rowView.FindViewById(Resource.Id.caption);
+            var imageView = (ImageView) rowView.FindViewById(Resource.Id.image);
+            textView.Text = values[position];
+            // Change the icon for Windows and iPhone
+            var s = values[position];
+            var id = _mapper[s];
+            imageView.SetImageResource(id);
+            
+            return rowView;
+        }
+    }
 }
 
 
